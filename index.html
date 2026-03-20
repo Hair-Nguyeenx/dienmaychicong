@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiệm Bánh Gia Đình - Bánh Tươi Mỗi Ngày</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <div class="logo">🍰 TIỆM BÁNH HẢI</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">TRANG CHỦ</a></li>
+                <li><a href="#products">SẢN PHẨM</a></li>
+                <li><a href="#about">VỀ CHÚNG TÔI</a></li>
+                <li><a href="#contact">LIÊN HỆ</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SHOPPING CART SIDEBAR -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>GIỎ HÀNG</h2>
+            <button onclick="toggleCart()" class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-total">
+            <h3>Tổng: <span id="totalPrice">0</span> đ</h3>
+            <button onclick="checkout()" class="checkout-btn">THANH TOÁN</button>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>BÁNH THƠM <br> MỖI NGÀY</h1>
+            <p>Bánh tươi ngon được nướng hàng ngày với nguyên liệu tốt nhất</p>
+            <button onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="cta-btn">MUA NGAY</button>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2>SẢN PHẨM NỔI BẬT</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>VỀ TIỆM BÁNH HẢI</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Tiệm Bánh Gia Đình chuyên cung cấp bánh tươi ngon, được nướng hàng ngày với công thức truyền thống và nguyên liệu nhập khẩu chất lượng cao.</p>
+                    <p>Chúng tôi cam kết mang đến cho bạn những chiếc bánh ngon, đẹp và an toàn cho sức khỏe gia đình bạn.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Nguyên Liệu Tự Nhiên</h3>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <h3>Nướng Hàng Ngày</h3>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-truck"></i>
+                        <h3>Giao Hàng Nhanh</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>LIÊN HỆ CHÚNG TÔI</h2>
+            <div class="contact-content">
+                <form onsubmit="submitForm(event)" class="contact-form">
+                    <input type="text" placeholder="Họ và tên" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Số điện thoại" required>
+                    <textarea placeholder="Tin nhắn của bạn" rows="5" required></textarea>
+                    <button type="submit" class="submit-btn">GỬI TIN NHẮN</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Địa Chỉ</h3>
+                            <p>123 Đường Bánh, Quận 1, TP.HCM</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Điện Thoại</h3>
+                            <p>0901 234 567</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@tiembanh.vn</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Tiệm Bánh Gia Đình. Tất cả quyền được bảo lưu.</p>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
